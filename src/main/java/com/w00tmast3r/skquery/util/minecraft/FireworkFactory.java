@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 
 public class FireworkFactory {
 
-    private Player[] players = Bukkit.getOnlinePlayers();
+    private Player[] players = Bukkit.getServer().getOnlinePlayers().toArray(new Player[0]);
     private FireworkEffect[] effects = null;
     private Location loc = new Location(Bukkit.getWorlds().get(0), 0, 0, 0);
 

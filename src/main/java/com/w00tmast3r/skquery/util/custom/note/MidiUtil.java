@@ -90,16 +90,16 @@ public class MidiUtil
         // look up the instrument matching the patch
         switch (instruments[patch])
         {
-            case 1: return Sound.NOTE_BASS_GUITAR;
-            case 2: return Sound.NOTE_SNARE_DRUM;
-            case 3: return Sound.NOTE_STICKS;
-            case 4: return Sound.NOTE_BASS_DRUM;
-            case 5: return Sound.NOTE_PLING;
-            case 6: return Sound.NOTE_BASS;
+            case 1: return Sound.BLOCK_NOTE_HAT;
+            case 2: return Sound.BLOCK_NOTE_SNARE;
+            case 3: return Sound.BLOCK_NOTE_HARP;
+            case 4: return Sound.BLOCK_NOTE_BASEDRUM;
+            case 5: return Sound.BLOCK_NOTE_PLING;
+            case 6: return Sound.BLOCK_NOTE_BASS;
         }
 
         // if no instrument match is found, use piano
-        return Sound.NOTE_PIANO;
+        return Sound.BLOCK_NOTE_BASS;
     }
 }
 

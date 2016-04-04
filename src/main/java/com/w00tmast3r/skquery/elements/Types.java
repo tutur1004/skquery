@@ -17,10 +17,6 @@ import com.w00tmast3r.skquery.skript.LambdaCondition;
 import com.w00tmast3r.skquery.skript.LambdaEffect;
 import com.w00tmast3r.skquery.skript.Markup;
 import com.w00tmast3r.skquery.util.ImageUtils;
-import com.w00tmast3r.skquery.util.minecraft.JSONMessage;
-import com.w00tmast3r.skquery.util.packet.particle.Particle;
-import com.w00tmast3r.skquery.util.packet.particle.ParticleType;
-import com.w00tmast3r.skquery.util.packet.particle.ParticleTypes;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 
@@ -108,33 +104,6 @@ public class Types extends AbstractTask {
                     }
                 }));
 
-        Classes.registerClass(new ClassInfo<>(JSONMessage.class, "jsonmessage")
-                .parser(new Parser<JSONMessage>() {
-                    @Override
-                    public JSONMessage parse(String s, ParseContext parseContext) {
-                        return null;
-                    }
-
-                    @Override
-                    public boolean canParse(ParseContext context) {
-                        return false;
-                    }
-
-                    @Override
-                    public String toString(JSONMessage jsonMessage, int i) {
-                        return jsonMessage.toOldMessageFormat();
-                    }
-
-                    @Override
-                    public String toVariableNameString(JSONMessage jsonMessage) {
-                        return jsonMessage.toOldMessageFormat();
-                    }
-
-                    @Override
-                    public String getVariableNamePattern() {
-                        return ".+";
-                    }
-                }));
 
         Classes.registerClass(new ClassInfo<>(FireworkEffect.class, "fireworkeffect")
                 .parser(new Parser<FireworkEffect>() {
@@ -164,80 +133,6 @@ public class Types extends AbstractTask {
                     }
                 }));
 
-        Classes.registerClass(new ClassInfo<>(ParticleType.class, "particletype")
-                .after("string")
-                .before("particletypes")
-                .parser(new Parser<ParticleType>() {
-                    @Override
-                    public ParticleType parse(String s, ParseContext parseContext) {
-                        try {
-                            return new ParticleType(ParticleTypes.valueOf(s.replace(" ", "_").toUpperCase().trim()));
-                        } catch (IllegalArgumentException e) {
-                            Matcher blockdust = BLOCKDUST.matcher(s);
-                            Matcher blockcrack = BLOCKCRACK.matcher(s);
-                            Matcher iconcrack = ICONCRACK.matcher(s);
-                            Matcher iconcrackdata = ICONCRACKDATA.matcher(s);
-                            if (blockdust.matches()) {
-                                return new ParticleType("blockdust_" + blockdust.group(1) + "_" + blockdust.group(2));
-                            } else if (blockcrack.matches()) {
-                                return new ParticleType("blockcrack_" + blockcrack.group(1) + "_" + blockcrack.group(2));
-                            } else if (iconcrack.matches()) {
-                                return new ParticleType("iconcrack_" + iconcrack.group(1));
-                            } else if (iconcrackdata.matches()) {
-                                return new ParticleType("iconcrack_" + iconcrackdata.group(1) + "_" + iconcrackdata.group(2));
-                            }
-                        }
-                        return null;
-                    }
-
-                    @Override
-                    public boolean canParse(ParseContext context) {
-                        return true;
-                    }
-
-                    @Override
-                    public String toString(ParticleType particleType, int i) {
-                        return particleType.toString();
-                    }
-
-                    @Override
-                    public String toVariableNameString(ParticleType particleType) {
-                        return particleType.toString();
-                    }
-
-                    @Override
-                    public String getVariableNamePattern() {
-                        return ".+";
-                    }
-                }));
-
-        Classes.registerClass(new ClassInfo<>(Particle.class, "particle")
-                .parser(new Parser<Particle>() {
-                    @Override
-                    public Particle parse(String s, ParseContext parseContext) {
-                        return null;
-                    }
-
-                    @Override
-                    public boolean canParse(ParseContext context) {
-                        return false;
-                    }
-
-                    @Override
-                    public String toString(Particle particle, int i) {
-                        return particle.toString();
-                    }
-
-                    @Override
-                    public String toVariableNameString(Particle particle) {
-                        return particle.toString();
-                    }
-
-                    @Override
-                    public String getVariableNamePattern() {
-                        return ".+";
-                    }
-                }));
 
         Classes.registerClass(new ClassInfo<>(Markup.class, "markup")
                 .parser(new Parser<Markup>() {

@@ -63,7 +63,7 @@ public class NoteBlockReceiver implements Receiver
 
         // get the correct instrument
         Integer patch = channelPatches.get(message.getChannel());
-        Sound instrument = Sound.NOTE_PIANO;
+        Sound instrument = Sound.BLOCK_NOTE_PLING;
         if (patch != null) instrument = MidiUtil.patchToInstrument(patch);
 
         for (Player player : listeners)
