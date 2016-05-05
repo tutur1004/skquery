@@ -380,8 +380,8 @@ public class Types extends AbstractTask {
                 }));
 
 
-        if (!Skript.classExists("org.bukkit.Color") || Skript.getInstance().getServer().getPluginManager().getPlugin("Umbaska") == null) {
-            Classes.registerClass(new ClassInfo<>(Color.class, "bukkitrgbcolor")
+        if (!Skript.classExists("org.bukkit.Color")) {
+            Classes.registerClass(new ClassInfo<>(Color.class, "rgbcolor")
                     .parser(new Parser<Color>() {
                         @Override
                         public Color parse(final String s, final ParseContext context) {

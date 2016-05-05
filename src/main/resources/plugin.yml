@@ -1,6 +1,7 @@
 name: SkQuery
 authors: [w00tmast3r, Gatt]
-version: 3.5
+version: 3.5.1
 depend: [Skript]
 soft-depend: [ProtocolLib]
 main: com.w00tmast3r.skquery.SkQuery
+loadafter: [Umbaska]

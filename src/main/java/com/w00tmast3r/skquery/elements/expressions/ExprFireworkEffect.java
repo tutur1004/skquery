@@ -11,10 +11,10 @@ import org.bukkit.FireworkEffect;
 import org.bukkit.event.Event;
 
 
-@Patterns({"(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %bukkitrgbcolors%",
-        "(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %bukkitrgbcolors% fad(e|ing) [to] %bukkitrgbcolors%",
-        "(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %bukkitrgbcolors%",
-        "(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %bukkitrgbcolors% fad(e|ing) [to] %bukkitrgbcolors%"})
+@Patterns({"(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %rgbcolors%",
+        "(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %rgbcolors% fad(e|ing) [to] %rgbcolors%",
+        "(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %rgbcolors%",
+        "(1¦|2¦flickering |3¦trailing |4¦flickering trailing |5¦trailing flickering )%fireworktype% firework [effect] colored %rgbcolors% fad(e|ing) [to] %rgbcolors%"})
 public class ExprFireworkEffect extends SimpleExpression<FireworkEffect> {
 
     private Expression<FireworkEffect.Type> type;
