@@ -64,7 +64,7 @@ public class ExprPlayerPermissions extends SimpleExpression<String> {
 
     @Override
     public Class<?>[] acceptChange(Changer.ChangeMode mode) {
-        if (mode == Changer.ChangeMode.ADD || mode == Changer.ChangeMode.REMOVE) return Collect.asArray(String[].class);
+        if (mode == Changer.ChangeMode.ADD || mode == Changer.ChangeMode.REMOVE || mode == Changer.ChangeMode.SET) return Collect.asArray(String[].class);
         return null;
     }
 
