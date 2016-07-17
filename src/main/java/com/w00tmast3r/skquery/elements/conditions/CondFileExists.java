@@ -1,10 +1,12 @@
-package com.gmail.thelimeglass.Conditions;
+package com.w00tmast3r.skquery.elements.conditions;
 
 import java.io.File;
 
 import javax.annotation.Nullable;
 
 import org.bukkit.event.Event;
+
+import com.w00tmast3r.skquery.api.Patterns;
 
 import ch.njol.skript.doc.Description;
 import ch.njol.skript.doc.Name;
