@@ -33,7 +33,7 @@ public class ExprYAMLValue extends SimpleExpression<Object> {
 	protected Object[] get(Event e) {
 		String p = path.getSingle(e);
 		String f = file.getSingle(e);
-		File fileExistance = new File(f.getSingle(e));
+		File fileExistance = new File(f);
 		if (p == null || f == null || !fileExistance.exists()) return null;
 		File file = new File(Skript.getInstance().getDataFolder() + "/scripts/" + (f.contains(".") ? f : f + ".yml"));
 		try {
