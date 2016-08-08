@@ -40,7 +40,7 @@ public class EffBranch extends Effect {
 
     @Override
     public String toString(Event event, boolean b) {
-        return "escape";
+        return "branch";
     }
 
     @Override
