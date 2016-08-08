@@ -15,17 +15,22 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.HashSet;
+
+import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiUnavailableException;
 
 @Name("Play MIDI")
 @Description("Plays a file with the extention .mid to a player.")
 @Examples("on join:;->play midi \"login\" to player")
-@Patterns("play midi %string% to %players%")
+@Patterns("play midi %string% to %players% [at [tempo] %-number%]")
 public class EffMIDI extends Effect {
 
     private Expression<String> midi;
     private Expression<Player> players;
+    private Expression<Number> tempo;
 
     @Override
     protected void execute(Event event) {
@@ -33,9 +38,21 @@ public class EffMIDI extends Effect {
         if(m == null) return;
         File f = new File(Skript.getInstance().getDataFolder().getAbsolutePath() + File.separator + Skript.SCRIPTSFOLDER + File.separator + m + ".mid");
         HashSet<Player> pList = new HashSet<>();
+        Float tempoFinal = (Float)1.0f;
+		if (tempo.getSingle(event) != null) {
+			tempoFinal = tempo.getSingle(event).floatValue();
+		}
         if (f.exists()) {
             Collections.addAll(pList, players.getAll(event));
-            MidiUtil.playMidiQuietly(f, pList);
+            try {
+				MidiUtil.playMidi(f, tempoFinal, pList);
+			} catch (InvalidMidiDataException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (MidiUnavailableException e) {
+				e.printStackTrace();
+			}
         } else {
             Bukkit.getLogger().warning("Could not find midi file " + m + ".mid in the scripts folder");
         }
@@ -46,7 +63,8 @@ public class EffMIDI extends Effect {
         return "midi";
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public boolean init(Expression<?>[] expressions, int i, Kleenean kleenean, SkriptParser.ParseResult parseResult) {
         midi = (Expression<String>) expressions[0];
         players = (Expression<Player>) expressions[1];
