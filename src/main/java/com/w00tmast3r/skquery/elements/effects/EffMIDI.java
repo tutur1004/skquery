@@ -39,9 +39,9 @@ public class EffMIDI extends Effect {
         File f = new File(Skript.getInstance().getDataFolder().getAbsolutePath() + File.separator + Skript.SCRIPTSFOLDER + File.separator + m + ".mid");
         HashSet<Player> pList = new HashSet<>();
         Float tempoFinal = (Float)1.0f;
-		if (tempo.getSingle(event) != null) {
-			tempoFinal = tempo.getSingle(event).floatValue();
-		}
+        if (tempo.getSingle(event) != null) {
+            tempoFinal = tempo.getSingle(event).floatValue();
+        }
         if (f.exists()) {
             Collections.addAll(pList, players.getAll(event));
             try {
