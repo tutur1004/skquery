@@ -1,6 +1,6 @@
 SkQuery By LimeBae
 =======
-A Re-Mastered SkQuery build for 1.6-1.10 (1.9+ only supported)
+A Re-Mastered SkQuery build (1.9+ supported)
 
 Changes:
 - A lot of bug fixes
