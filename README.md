@@ -6,6 +6,7 @@ Changes:
 - A lot of bug fixes
 - Added tempo option to midi syntax `play midi %string% to %players% [at [tempo] %-number%]`
 - Removed broken MySQL support
+- Added file existance condition `file [exist[(s|ance)] [at]] %string%` or `file %string% exists`
 - Removed some files that were un-used
 - Fixed all yml file generation crash issues
 - Removed some useless yml stuff (Such as flush etc)
