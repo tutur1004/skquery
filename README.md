@@ -8,7 +8,6 @@ Changes:
 - Removed broken MySQL support
 - Added file existance condition `file [exist[(s|ance)] [at]] %string%` or `file %string% exists`
 - Removed some files that were un-used
-- Fixed all yml file generation crash issues
-- Removed some useless yml stuff (Such as flush etc)
+- Broke yaml
 
 Get jar download: https://www.dropbox.com/s/i313spdlw2i7905/LimeSkQuery.jar?dl=0
